@@ -1,7 +1,7 @@
 package com.example.Event.Management.System.Configuration;
 
 
-import com.example.Event.Management.System.Repository.UserRepository;
+import com.example.Event.Management.System.Repository.User.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

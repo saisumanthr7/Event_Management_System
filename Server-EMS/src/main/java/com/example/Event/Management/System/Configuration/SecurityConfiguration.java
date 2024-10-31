@@ -1,6 +1,7 @@
 package com.example.Event.Management.System.Configuration;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -21,12 +22,13 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
     private final JWTAuthFilter jwtAuthFilter;
 
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers("/EMS/auth/*").permitAll()
-                                .requestMatchers("EMS/auth/authenticate").permitAll()
+                        req.requestMatchers("/EMS/auth/**").permitAll()
+                                .requestMatchers("EMS/auth/login").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
