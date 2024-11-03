@@ -8,7 +8,6 @@ import com.example.Event.Management.System.Entity.User;
 import com.example.Event.Management.System.Enums.Roles;
 import com.example.Event.Management.System.Repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
